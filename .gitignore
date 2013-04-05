@@ -1,0 +1,5 @@
+bin/
+.bundle/
+iso/
+*.box
+virtualfloppy.vfd
