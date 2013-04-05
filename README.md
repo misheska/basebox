@@ -17,11 +17,17 @@ at this git repository:
 
     bundle exec veewee list --workdir ~/basebox
 
-To add a new veewee basebox definition, run the following:
+To add a new veewee VirtualBox basebox definition, run the following:
 
     bundle exec veewee vbox templates
     # Choose a template, like 'Debian-7.0-rc1-amd64-netboot'
     bundle exec veewee vbox define misheska-debian-7.0 Debian-7.0-rc1-amd64-netboot --workdir=~/basebox
+
+To add a new veewee VMware Fusion basebox definition:
+
+    bundle exec veewee fusion templates
+    # Choose a template, like 'Debian-7.0-rc1-amd64-netboot'
+    bundle exec veewee fusion define misheska-debian-7.0-fusion Debian-7.0-rc1-amd64-netboot --workdir=~/basebox
 
 In this drectory, the basebox definitions are heavily customized to be
 "Don't Repeat Yourself" (DRY) modular baseboxes, per
@@ -37,3 +43,9 @@ To build a VirtualBox box:
     vagrant package --base 'misheska-centos-5.7' --output 'boxes/misheska-centos-5.7.box'
     popd
     bundle exec veewee vbox destroy misheska-centos-5.7 --workdir=/Users/misheska/git/basebox
+
+To build a VMware Fusion box:
+
+    bundle exec veewee fusion list --workdir=/Users/misheska/git/basebox
+    # Choose a definition, like 'misheska-centos-5.7-fusion'
+    bundle exec veewee fusion build misheska-centos-5.7-fusion  
