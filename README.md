@@ -26,3 +26,14 @@ To add a new veewee basebox definition, run the following:
 In this drectory, the basebox definitions are heavily customized to be
 "Don't Repeat Yourself" (DRY) modular baseboxes, per
 [Tim Dysinger](https://github.com/dysinger/basebox).
+
+To build a VirtualBox box:
+
+    bundle exec veewee vbox list --workdir=/Users/misheska/git/basebox
+    # Choose a definition, like 'misheska-centos-5.7' 
+    bundle exec veewee vbox build misheska-centos-5.7 --workdir=/Users/misheska/git/basebox
+    pushd /Users/misheska/git/basebox
+    mkdir -p boxes
+    vagrant package --base 'misheska-centos-5.7' --output 'boxes/misheska-centos-5.7.box'
+    popd
+    bundle exec veewee vbox destroy misheska-centos-5.7 --workdir=/Users/misheska/git/basebox
