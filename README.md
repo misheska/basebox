@@ -48,4 +48,23 @@ To build a VMware Fusion box:
 
     bundle exec veewee fusion list --workdir=/Users/misheska/git/basebox
     # Choose a definition, like 'misheska-centos-5.7-fusion'
-    bundle exec veewee fusion build misheska-centos-5.7-fusion  
+    bundle exec veewee fusion build misheska-centos-5.7-fusion --workdir=/Users/misheska/git/basebox
+    pushd /Users/misheska/git/basebox
+    mkdir -p boxes
+    # There's no `vagrant package` for Fusion yet, do it by hand
+    shutdown the VM
+    # Defragment main disk
+    /Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager -d /Users/misheska/Documents/Virtual\ Machines.localized/misheska-centos-5.7-fusion/misheska-centos-5.7-fusion.vmdk
+    # Compress main disk
+    /Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager -k /Users/misheska/Documents/Virtual\ Machines.localized/misheska-centos-5.7-fusion/misheska-centos-5.7-fusion.vmdk
+    pushd /Users/misheska/Documents/Virtual\ Machines.localized/misheska-centos-5.7-fusion.vmwarevm
+    rm *.plist
+    rm vmware.log
+    rm -rf *.lck
+    cat <<EOF > metadata.json
+    {
+      "provider": "vmware_fusion"
+    }
+    EOF
+    tar cvzf /Users/misheska/git/boxes/basebox/misheska-centos-5.7-fusion.box ./*
+    bundle exec veewee fusion destroy misheska-centos-5.7-fusion --workdir=/Users/misheska/git/basebox
