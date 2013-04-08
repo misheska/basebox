@@ -7,5 +7,6 @@ CENTOS_SESSION_FUSION =
                          :kickstart_file => "ks.cfg",
                          :shutdown_cmd => "/sbin/halt -h -p",
                          :postinstall_files => [ "chef-client.sh",
+                                                 "vmfusion.sh",
                                                  "cleanup.sh",
                                                  "minimize.sh" ] })
