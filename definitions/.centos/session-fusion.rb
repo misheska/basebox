@@ -8,5 +8,6 @@ CENTOS_SESSION_FUSION =
                          :shutdown_cmd => "/sbin/halt -h -p",
                          :postinstall_files => [ "chef-client.sh",
                                                  "vmfusion.sh",
+                                                 "vagrant.sh",
                                                  "cleanup.sh",
                                                  "minimize.sh" ] })
