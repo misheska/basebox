@@ -1,0 +1,1 @@
+../.fusion/vmware-tools.sh

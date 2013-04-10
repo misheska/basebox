@@ -1,5 +1,4 @@
 #!/bin/bash -eux
 yum -y erase gtk2 libX11 hicolor-icon-theme avahi freetype bitstream-vera-fonts
 yum -y clean all
-rm -rf /tmp/vmware* /tmp/VMware*
-rm -f /tmp/ks-script.* /tmp/stderr
+rm -f /tmp/chef*rpm
