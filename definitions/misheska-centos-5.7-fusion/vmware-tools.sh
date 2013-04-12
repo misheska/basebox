@@ -1,1 +1,1 @@
-../.fusion/vmware-tools.sh
+../.common/vmware-tools.sh

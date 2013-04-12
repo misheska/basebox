@@ -1,1 +1,1 @@
-../.fusion/cleanup-fusion.sh
+../.common/cleanup-fusion.sh

@@ -1,18 +1,54 @@
 desc "veewee list"
-task :list do
+task :list, [:provider] do |t, args|
+  args.with_defaults(:provider => 'vbox')
+  provider = args[:provider]
   veewee_path = "../veewee"
   workdir=Dir.pwd
   Dir.chdir(veewee_path) do
-    sh "bundle exec veewee fusion list --workdir=#{workdir}"
+    sh "bundle exec veewee #{provider} list --workdir=#{workdir}"
+  end
+end
+
+desc "veewee templates"
+task :templates, [:provider] do |t, args|
+  args.with_defaults(:provider => 'vbox')
+  provider = args[:provider]
+  veewee_path = "../veewee"
+  workdir=Dir.pwd
+  Dir.chdir(veewee_path) do
+    sh "bundle exec veewee #{provider} templates --workdir=#{workdir}"
+  end
+end
+
+desc "veewee help"
+task :help, [:provider] do |t, args|
+  args.with_defaults(:provider => 'vbox')
+  provider = args[:provider]
+  veewee_path = "../veewee"
+  workdir=Dir.pwd
+  Dir.chdir(veewee_path) do
+    sh "bundle exec veewee #{provider} help --workdir=#{workdir}"
+  end
+end
+
+desc "veewee define"
+task :define, [:name, :template, :provider] do |t, args|
+  name = args[:name]
+  template = args[:template]
+  provider = args[:provider]
+  veewee_path = "../veewee"
+  workdir=Dir.pwd
+  Dir.chdir(veewee_path) do
+    sh "bundle exec veewee #{provider} define #{name} #{template} --workdir=#{workdir}"
   end
 end
 
 desc "vewee build[name,provider]"
-task :build, :name, :provider do |t, args|
+task :build, [:name, :provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
-  name = args[:name]
   provider = args[:provider]
-  veewee_path = "/Users/misheska/git/veewee"
+  name = args[:name]
+  veewee_path = "../veewee"
   workdir=Dir.pwd
   Dir.chdir(veewee_path) do
     sh "bundle exec veewee #{provider} build #{name} --workdir=#{workdir}"
@@ -20,28 +56,33 @@ task :build, :name, :provider do |t, args|
 end
 
 desc "vewee package[name,provider]"
-task :export, :name, :provider do |t, args|
+task :package, [:name, :provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
-  name = args[:name]
   provider = args[:provider]
+  name = args[:name]
   if provider == 'fusion'
     vdiskmanager_path = '/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager'
     vm_path = '/Users/misheska/Documents/Virtual\ Machines.localized'
     vmwarevm_path = "#{vm_path}/#{name}.vmwarevm"
-    
+    vmrun_path = '/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
+    vmx_path = "#{vmwarevm_path}/#{name}.vmx"
+   
+    sh "#{vmrun_path} -T fusion -u root -p vagrant stop #{vmx_path} soft" 
     sh "#{vdiskmanager_path} -d #{vmwarevm_path}/#{name}.vmdk"
     sh "#{vdiskmanager_path} -k #{vmwarevm_path}/#{name}.vmdk"
-    sh "tar -cvz --exclude='./vmware.log' --exclude='*.lck' --exclude='*.plist' -f #{name}.box -C template metadata.json -C #{vmwarevm_path} ."
+    sh "mkdir -p output/fusion"
+    sh "tar -cvz --exclude='./vmware.log' --exclude='*.lck' --exclude='*.plist' -f output/fusion/#{name}.box -C template metadata.json -C #{vmwarevm_path} ."
   elsif provider == 'vbox'
-    sh "vagrant package --base #{name} --output #{name}.box"
+    sh "mkdir -p output"
+    sh "vagrant package --base #{name} --output output/#{name}.box"
   end
 end 
 
 desc "vewee destroy[name,provider]"
-task :destroy, :name, :provider do |t, args|
+task :destroy, [:name, :provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
-  name = args[:name]
   provider = args[:provider]
+  name = args[:name]
   veewee_path = "../veewee"
   workdir=Dir.pwd
   Dir.chdir(veewee_path) do

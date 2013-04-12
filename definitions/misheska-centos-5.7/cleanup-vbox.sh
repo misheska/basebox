@@ -1,1 +1,1 @@
-../.vbox/cleanup-vbox.sh
+../.common/cleanup-vbox.sh
