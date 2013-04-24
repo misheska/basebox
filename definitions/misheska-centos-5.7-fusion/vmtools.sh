@@ -1,0 +1,1 @@
+../.centos5/vmtools.sh

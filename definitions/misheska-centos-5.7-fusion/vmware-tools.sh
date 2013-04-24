@@ -1,1 +1,0 @@
-../.common/vmware-tools.sh

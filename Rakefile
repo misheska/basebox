@@ -1,5 +1,17 @@
+desc "vewee build[name,provider]"
+task :build, [:name, :provider] => [:clone_veewee] do |t, args|
+  args.with_defaults(:provider => 'vbox')
+  provider = args[:provider]
+  name = args[:name]
+  veewee_path = "../veewee"
+  workdir=Dir.pwd
+  Dir.chdir(veewee_path) do
+    sh "bundle exec veewee #{provider} build #{name} --workdir=#{workdir}"
+  end
+end
+
 desc "veewee list"
-task :list, [:provider] do |t, args|
+task :list, [:provider] => [:clone_veewee] do |t, args|
   args.with_defaults(:provider => 'vbox')
   provider = args[:provider]
   veewee_path = "../veewee"
@@ -43,18 +55,6 @@ task :define, [:name, :template, :provider] do |t, args|
   end
 end
 
-desc "vewee build[name,provider]"
-task :build, [:name, :provider] do |t, args|
-  args.with_defaults(:provider => 'vbox')
-  provider = args[:provider]
-  name = args[:name]
-  veewee_path = "../veewee"
-  workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} build #{name} --workdir=#{workdir}"
-  end
-end
-
 desc "vewee package[name,provider]"
 task :package, [:name, :provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
@@ -62,7 +62,7 @@ task :package, [:name, :provider] do |t, args|
   name = args[:name]
   if provider == 'fusion'
     vdiskmanager_path = '/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager'
-    vm_path = '/Users/misheska/Documents/Virtual\ Machines.localized'
+    vm_path = '~/Documents/Virtual\ Machines.localized'
     vmwarevm_path = "#{vm_path}/#{name}.vmwarevm"
     vmrun_path = '/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
     vmx_path = "#{vmwarevm_path}/#{name}.vmx"
@@ -92,3 +92,12 @@ end
 
 desc 'create directory for build output'
 directory 'output'
+
+desc 'clone veewee'
+task :clone_veewee do
+  if !File.directory?("../veewee")
+    sh 'git clone https://github.com/jedi4ever/veewee.git ../veewee'
+    sh 'cd ../veewee && gem install bundler'
+    sh 'cd ../veewee && bundle install'
+  end
+end

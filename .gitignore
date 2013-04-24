@@ -4,3 +4,4 @@ iso/
 *.box
 virtualfloppy.vfd
 .DS_Store
+output/
