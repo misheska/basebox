@@ -1,1 +1,1 @@
-../.centos5/vagrant.sh
+../.centos/vagrant.sh

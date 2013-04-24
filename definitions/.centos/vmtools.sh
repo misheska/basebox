@@ -1,9 +1,11 @@
 #!/bin/bash -eux
 
 if test -f .vmfusion_version ; then
-    # Uninstall fuse to fake out the vmware install so it won't try to
-    # enable the VMware blocking filesystem
-    yum erase -y fuse
+    if grep -q -i "release 6" /etc/redhat-release ; then
+        # Uninstall fuse to fake out the vmware install so it won't try to
+        # enable the VMware blocking filesystem
+        yum erase -y fuse
+    fi
     yum install -y gcc make kernel-devel-$(uname -r) perl
 
     cd /tmp

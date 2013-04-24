@@ -1,1 +1,1 @@
-../.centos5/base.sh
+../.centos/base.sh

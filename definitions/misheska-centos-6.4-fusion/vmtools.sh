@@ -1,1 +1,1 @@
-../.centos6/vmtools.sh
+../.centos/vmtools.sh

@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/../.centos6/session.rb"
+require File.dirname(__FILE__) + "/../.centos/session.rb"
 
 iso = "CentOS-6.4-x86_64-minimal.iso"
 

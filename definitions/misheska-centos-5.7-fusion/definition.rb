@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/../.centos5/session.rb"
+require File.dirname(__FILE__) + "/../.centos/session.rb"
 
 iso = "CentOS-5.7-x86_64-bin-DVD-1of2.iso"
 

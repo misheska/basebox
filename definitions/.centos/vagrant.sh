@@ -9,8 +9,12 @@ yum install -y wget
 /usr/sbin/groupadd vagrant
 /usr/sbin/useradd vagrant -g vagrant -G wheel
 echo "vagrant"|passwd --stdin vagrant
-echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/vagrant
-chmod 0440 /etc/sudoers.d/vagrant
+if grep -q -i "release 6" /etc/redhat-release ; then
+    echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/vagrant
+    chmod 0440 /etc/sudoers.d/vagrant
+else
+    echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+fi
 
 # Installing vagrant keys
 mkdir -pm 700 /home/vagrant/.ssh
