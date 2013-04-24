@@ -1,9 +1,9 @@
 basebox
 =======
 
-Veewee definitions for VirtualBox and VMware Fusion baseboxes. 
-These are the baseboxes I use for my own personal projents.  These basebox
-definitions are heavily customized to be "Don't Repeat Yourself" (DRY) 
+Veewee definitions for vagrant VirtualBox and VMware Fusion baseboxes. 
+These are the vagrant baseboxes I use for my own personal projents.  These
+basebox definitions are heavily customized to be "Don't Repeat Yourself" (DRY) 
 modular baseboxes, per [Tim Dysinger](https://github.com/dysinger/basebox).
 This project is run against a private Jenkins instance, and as Veewee basebox
 definitions are added and/or updated, links to the generated images are
