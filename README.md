@@ -32,18 +32,18 @@ the rake gem is installed:
 To build a VirtualBox box:
 
     rake list
-    # Choose a definition, like 'misheska-centos-5.7'
-    rake build[misheska-centos-5.7,vbox]
-    rake package[misheska-centos-5.7,vbox]
-    rake destroy[misheska-centos-5.7,vbox] 
+    # Choose a definition, like 'misheska-ubuntu-12.04'
+    rake build[misheska-ubuntu-12.04,vbox]
+    rake package[misheska-ubuntu-12.04,vbox]
+    rake destroy[misheska-ubuntu-12.04,vbox] 
 
 To build a VMware Fusion box:
 
     rake list
-    # Choose a definition, like 'misheska-centos-6.4-fusion'
-    rake build[misheska-centos-6.4-fusion,fusion]
-    rake package[misheska-centos-6.4-fusion,fusion]
-    rake destroy[misheska-centos-6.4-fusion,fusion]
+    # Choose a definition, like 'misheska-centos-6.4'
+    rake build[misheska-centos-6.4,fusion]
+    rake package[misheska-centos-6.4,fusion]
+    rake destroy[misheska-centos-6.4,fusion]
 
 To add a new veewee VirtualBox basebox definition, run the following:
 

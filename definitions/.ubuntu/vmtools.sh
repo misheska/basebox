@@ -15,4 +15,18 @@ if test -f .vmfusion_version ; then
 
     apt-get -y remove linux-headers-$(uname -r) build-essential perl
     apt-get -y autoremove
+elif test -f .vbox_version ; then
+    echo "Installing VirtualBox guest additions"
+
+    apt-get install -y linux-headers-$(uname -r) build-essential perl
+    apt-get install -y dkms
+
+    VBOX_VERSION=$(cat /home/veewee/.vbox_version)
+    cd /tmp
+    wget http://download.virtualbox.org/virtualbox/$VBOX_VERSION/VBoxGuestAdditions_$VBOX_VERSION.iso
+    mount -o loop VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
+    sh /mnt/VBoxLinuxAdditions.run
+    umount /mnt
+
+    rm VBoxGuestAdditions_$VBOX_VERSION.iso
 fi

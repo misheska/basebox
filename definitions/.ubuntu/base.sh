@@ -4,6 +4,8 @@ apt-get -y update
 apt-get -y upgrade
 apt-get clean
 
+apt-get -y install curl
+
 # Set up sudo - be careful to set the file attribute before copying to sudoers.d
 ( cat <<'EOP'
 %veewee ALL=NOPASSWD:ALL

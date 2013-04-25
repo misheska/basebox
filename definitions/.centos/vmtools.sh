@@ -18,4 +18,18 @@ if test -f .vmfusion_version ; then
     rmdir /mnt/cdrom
 
     yum erase -y gcc make kernel-devel-$(uname -r) perl
+elif test -f .vbox_version ; then
+    echo "Installing VirtualBox guest additions"
+
+    yum install -y kernel-devel-$(uname -r)
+    yum install -y gcc make perl
+
+    VBOX_VERSION=$(cat /home/veewee/.vbox_version)
+    cd /tmp
+    mount -o loop /home/veewee/VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
+    sh /mnt/VBoxLinuxAdditions.run
+    umount /mnt
+    rm -rf /home/veewee/VBoxGuestAdditions_*.iso
+
+    yum erase -y gcc make kernel-devel-$(uname -r) perl
 fi
