@@ -14,6 +14,8 @@ Current Basesboxes
 
 * [misheska-centos-6.4-fusion](https://www.dropbox.com/s/9oe0vdl9nh2fvzm/misheska-centos-6.4-fusion.box) - CentOS 6.4 64-bit Minimal VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
 * [misheska-centos-5.7-fusion](https://www.dropbox.com/s/7r97w23ou6amgk5/misheska-centos-5.7-fusion.box) - CentOS 5.7 64-bit VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
+* [misheska-ubuntu-12.04-fusion](https://www.dropbox.com/s/zr1hktxfuzhtl5z/misheska-ubuntu-12.04-fusion.box) - Ubuntu 12.04.2 server 64-bit VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
+* [misheska-ubuntu-10.04-fusion](https://www.dropbox.com/s/pj1p7guhi3q0k73/misheska-ubuntu-10.04-fusion.box) - Ubuntu 10.04.4 server 64-bit VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
 
 Getting Started
 ===============
