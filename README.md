@@ -9,8 +9,8 @@ This project is run against a private Jenkins instance, and as Veewee basebox
 definitions are added and/or updated, links to the generated images are
 added below:
 
-Current Basesboxes
-==================
+Current Baseboxes
+=================
 
 * [misheska-centos-6.4-fusion](https://www.dropbox.com/s/9oe0vdl9nh2fvzm/misheska-centos-6.4-fusion.box) - CentOS 6.4 64-bit Minimal VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
 * [misheska-centos-5.7-fusion](https://www.dropbox.com/s/7r97w23ou6amgk5/misheska-centos-5.7-fusion.box) - CentOS 5.7 64-bit VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
@@ -45,7 +45,7 @@ To build a VMware Fusion box:
     rake package[misheska-centos-6.4,fusion]
     rake destroy[misheska-centos-6.4,fusion]
 
-To add a new veewee VirtualBox basebox definition, run the following:
+To add a new veewee basebox definition, run the following:
 
     rake templates
     # Choose a template, like 'Debian-7.0-rc1-amd64-netboot'
