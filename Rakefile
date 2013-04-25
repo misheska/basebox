@@ -45,6 +45,7 @@ end
 
 desc "veewee define"
 task :define, [:name, :template, :provider] do |t, args|
+  args.with_defaults(:provider => 'vbox')
   name = args[:name]
   template = args[:template]
   provider = args[:provider]
