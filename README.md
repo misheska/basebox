@@ -47,13 +47,6 @@ To build a VMware Fusion box:
 
 To add a new veewee VirtualBox basebox definition, run the following:
 
-    bundle exec veewee vbox templates
+    rake templates
     # Choose a template, like 'Debian-7.0-rc1-amd64-netboot'
-    bundle exec veewee vbox define misheska-debian-7.0 Debian-7.0-rc1-amd64-netboot --workdir=../basebox
-
-To add a new veewee VMware Fusion basebox definition:
-
-    bundle exec veewee fusion templates
-    # Choose a template, like 'Debian-7.0-rc1-amd64-netboot'
-    bundle exec veewee fusion define misheska-debian-7.0-fusion Debian-7.0-rc1-amd64-netboot --workdir=../basebox
-
+    rake define[misheska-debian-7.0,Debian-7.0-rc1-amd64-netboot]
