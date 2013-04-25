@@ -1,1 +1,1 @@
-../.common/cleanup.sh
+../.centos/cleanup.sh
