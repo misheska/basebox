@@ -3,44 +3,32 @@ task :build, [:name, :provider] => [:clone_veewee] do |t, args|
   args.with_defaults(:provider => 'vbox')
   provider = args[:provider]
   name = args[:name]
-  veewee_path = "../veewee"
-  workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} build #{name} --workdir=#{workdir}"
-  end
+  veewee_gemfile = "../veewee/Gemfile"
+  sh "env BUNDLE_GEMFILE=#{veewee_gemfile} bundle exec veewee #{provider} build #{name}"
 end
 
 desc "veewee list"
 task :list, [:provider] => [:clone_veewee] do |t, args|
   args.with_defaults(:provider => 'vbox')
   provider = args[:provider]
-  veewee_path = "../veewee"
-  workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} list --workdir=#{workdir}"
-  end
+  veewee_gemfile = "../veewee/Gemfile"
+  sh "env BUNDLE_GEMFILE=#{veewee_gemfile} bundle exec veewee #{provider} list"
 end
 
 desc "veewee templates"
 task :templates, [:provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
   provider = args[:provider]
-  veewee_path = "../veewee"
-  workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} templates --workdir=#{workdir}"
-  end
+  veewee_gemfile = "../veewee/Gemfile"
+  sh "env BUNDLE_GEMFILE=#{veewee_gemfile} bundle exec veewee #{provider} templates"
 end
 
 desc "veewee help"
 task :help, [:provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
   provider = args[:provider]
-  veewee_path = "../veewee"
-  workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} help --workdir=#{workdir}"
-  end
+  veewee_gemfile = "../veewee/Gemfile"
+  sh "env BUNDLE_GEMFILE=#{veewee_gemfile} bundle exec veewee #{provider} help"
 end
 
 desc "veewee define"
@@ -49,11 +37,9 @@ task :define, [:name, :template, :provider] do |t, args|
   name = args[:name]
   template = args[:template]
   provider = args[:provider]
-  veewee_path = "../veewee"
+  veewee_gemfile = "../veewee/Gemfile"
   workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} define #{name} #{template} --workdir=#{workdir}"
-  end
+  sh "env BUNDLE_GEMFILE=#{veewee_gemfile} bundle exec veewee #{provider} define #{name} #{template}"
 end
 
 desc "vewee package[name,provider]"
@@ -84,11 +70,8 @@ task :destroy, [:name, :provider] do |t, args|
   args.with_defaults(:provider => 'vbox')
   provider = args[:provider]
   name = args[:name]
-  veewee_path = "../veewee"
-  workdir=Dir.pwd
-  Dir.chdir(veewee_path) do
-    sh "bundle exec veewee #{provider} destroy #{name} --workdir=#{workdir}"
-  end
+  veewee_gemfile = "../veewee/Gemfile"
+  sh "env BUNDLE_GEMFILE=#{veewee_gemfile} bundle exec veewee #{provider} destroy #{name}"
 end
 
 desc 'create directory for build output'
