@@ -6,7 +6,7 @@ CENTOS_SESSION =
                          :kickstart_file => "ks.cfg",
                          :os_type_id => 'Centos_64',
                          :postinstall_files => [ "base.sh",
-                                                 "chef.sh",
+                                                 "sshd.sh",
                                                  "vagrant.sh",
                                                  "vmtools.sh",
                                                  "cleanup.sh",

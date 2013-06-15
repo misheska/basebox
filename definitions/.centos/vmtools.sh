@@ -6,7 +6,10 @@ if test -f .vmfusion_version ; then
         # enable the VMware blocking filesystem
         yum erase -y fuse
     fi
-    yum install -y gcc make kernel-devel-$(uname -r) perl
+    # Assume that we've installed all the prerequisites:
+M
+    # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perls
+    # from the install media via ks.cfg
 
     cd /tmp
     mkdir -p /mnt/cdrom
@@ -16,13 +19,12 @@ if test -f .vmfusion_version ; then
     rm /home/veewee/linux.iso
     umount /mnt/cdrom
     rmdir /mnt/cdrom
-
-    yum erase -y gcc make kernel-devel-$(uname -r) perl
 elif test -f .vbox_version ; then
     echo "Installing VirtualBox guest additions"
 
-    yum install -y kernel-devel-$(uname -r)
-    yum install -y gcc make perl
+    # Assume that we've installed all the prerequisites:
+    # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
+    # from the install media via ks.cfg
 
     VBOX_VERSION=$(cat /home/veewee/.vbox_version)
     cd /tmp
@@ -30,6 +32,4 @@ elif test -f .vbox_version ; then
     sh /mnt/VBoxLinuxAdditions.run
     umount /mnt
     rm -rf /home/veewee/VBoxGuestAdditions_*.iso
-
-    yum erase -y gcc make kernel-devel-$(uname -r) perl
 fi

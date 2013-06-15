@@ -9,12 +9,7 @@ yum install -y wget
 /usr/sbin/groupadd vagrant
 /usr/sbin/useradd vagrant -g vagrant -G wheel
 echo "vagrant"|passwd --stdin vagrant
-if grep -q -i "release 6" /etc/redhat-release ; then
-    echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/vagrant
-    chmod 0440 /etc/sudoers.d/vagrant
-else
-    echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
-fi
+echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 # Installing vagrant keys
 mkdir -pm 700 /home/vagrant/.ssh
@@ -30,6 +25,6 @@ if grep -q -i "release 6" /etc/redhat-release ; then
     rm /etc/udev/rules.d/70-persistent-net.rules
     mkdir /etc/udev/rules.d/70-persistent-net.rules
     rm /lib/udev/rules.d/75-persistent-net-generator.rules
-    rm -rf /dev/.udev/
-    sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
 fi
+rm -rf /dev/.udev/
+sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
