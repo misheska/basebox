@@ -7,8 +7,7 @@ if test -f .vmfusion_version ; then
         yum erase -y fuse
     fi
     # Assume that we've installed all the prerequisites:
-M
-    # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perls
+    # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
     # from the install media via ks.cfg
 
     cd /tmp
