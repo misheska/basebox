@@ -14,7 +14,7 @@ Current VMware Fusion Baseboxes
 
 * [misheska-centos-6.4](https://www.dropbox.com/s/z939ia4kurfuw6h/misheska-centos-6.4.box) - CentOS 6.4 64-bit VMware Fusion basebox (VMware Tools 9.2.2.18018)
 * [misheska-centos-5.9](https://www.dropbox.com/s/j9y298amevw7sfh/misheska-centos-5.9.box) - CentOS 5.9 64-bit VMware Fusion basebox (VMware Tools 9.2.2.18018)
-* [misheska-ubuntu-12.04](https://www.dropbox.com/s/z2pa3qvrgyl77k1/misheska-ubuntu-12.04.box) - Ubuntu 12.04.2 server 64-bit VMware Fusion (VMware Tools, Chef 11.4.4-1 Client)
+* [misheska-ubuntu-12.04](https://www.dropbox.com/s/z2pa3qvrgyl77k1/misheska-ubuntu-12.04.box) - Ubuntu 12.04.2 server 64-bit VMware Fusion basebox (VMware Tools 9.2.2.18018)
 * [misheska-ubuntu-10.04](https://www.dropbox.com/s/1rl14o3u3b8y5ea/misheska-ubuntu-10.04.box) - Ubuntu 10.04.4 server 64-bit VMware Fusion basebox (VMware Tools 9.2.2.18018)
 
 Current VirtualBox Baseboxes
