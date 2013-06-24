@@ -20,10 +20,10 @@ Current VMware Fusion Baseboxes
 Current VirtualBox Baseboxes
 ============================
 
-* [misheska-centos-6.4](https://www.dropbox.com/s/y42egyh9cqsge24/misheska-centos-6.4.box) - CentOS 6.4 64-bit VirtualBox basebox (VirtualBox 4.2.12 Guest Additions)
-* [misheska-centos-5.9](https://www.dropbox.com/s/5wpk5mhy3ovs0av/misheska-centos-5.9.box) - CentOS 5.9 64-bit VirtualBox basebox (VirtualBox 4.2.12 Guest Additions)
-* [misheska-ubuntu-12.04](https://www.dropbox.com/s/dauh3gn69dp1bfq/misheska-ubuntu-10.04.box) - Ubuntu 12.04.2 server 64-bit VirtualBox basebox (VirtualBox 4.2.12 Guest Additions)
-* [misheska-ubuntu-10.04](https://www.dropbox.com/s/m47nubjupedduvh/misheska-ubuntu-12.04.box) - Ubuntu 10.04.4 server 64-bit VirtualBox basebox (VirtualBox 4.2.12 Guest Additions)
+* [misheska-centos-6.4](https://www.dropbox.com/s/y42egyh9cqsge24/misheska-centos-6.4.box) - CentOS 6.4 64-bit VirtualBox basebox (VirtualBox 4.2.14 Guest Additions)
+* [misheska-centos-5.9](https://www.dropbox.com/s/5wpk5mhy3ovs0av/misheska-centos-5.9.box) - CentOS 5.9 64-bit VirtualBox basebox (VirtualBox 4.2.14 Guest Additions)
+* [misheska-ubuntu-12.04](https://www.dropbox.com/s/dauh3gn69dp1bfq/misheska-ubuntu-10.04.box) - Ubuntu 12.04.2 server 64-bit VirtualBox basebox (VirtualBox 4.2.14 Guest Additions)
+* [misheska-ubuntu-10.04](https://www.dropbox.com/s/m47nubjupedduvh/misheska-ubuntu-12.04.box) - Ubuntu 10.04.4 server 64-bit VirtualBox basebox (VirtualBox 4.2.14 Guest Additions)
 
 Getting Started
 ===============
